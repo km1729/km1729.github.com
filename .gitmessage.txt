@@ -1,26 +1,35 @@
-# <type>(<scope>): <subject>
-# Limit the title to 50 characters, e.g., feat: add hat wobble
+# Title: Summary, imperative, start upper case, don't end with a period
+# No more than 50 chars. #### 50 chars is here:  #
+# e.g <type>(<scope>): <subject>, feat: add hat wobble
 
 
-# <body> 
-# Wrap lines at 72 characters
+# Body: Explain *what* and *why* (not *how*). Include task ID (Jira issue).
+# Wrap at 72 chars. ################################## which is here:  #
 
 # Issue #
 # Close #
 
 ############### Commit type
-# feat : commit that adds a new feature
-# fix : commit that fixes a bug
-# design : commit related to CSS/UI or sql design changes
-# refactor : commit that involves refactoring
-# style : commit related to formatting, missing semicolons, etc., without changing production code
-# docs : commit that includes changes to the documentation
-# test : commit that adds missing tests or refactors tests, without changing production code
-# chore : commit for other changes or modifications of build/scripts
-# rename : commit for renaming or relocating files/folders only
-# remove : commit for deleting files/folders only
+# feat: addition of a new feature or functionality to the codebase
+#       e.g. [feat]: Implement user registration process
+# fix: a bug fix or correction e.g.fix: Resolve issue with login validation
+#       e.g. [fix]: Resolve issue with login validation
+# refactor: code refactoring without changing the functionality. 
+#       e.g. [refactor]: Reorganize database query functions
+# chore: maintenance tasks or other changes that do not affect the functionality
+#       e.g. [chore]: Update npm packages to latest versions
+# test:  adding, modifying, or improving tests, including unit tests, integration tests, or end-to-end tests.
+#       e.g. [test]: Add unit tests for authentication module
+# revert: undo a previous commit. It provides information about why and what is being reverted
+#       e.g. [revert]: Revert "Implement user authentication feature"
+# docs: changes to the READMEs, comments, or documentation generation 
+#       e.g. [docs]: Update API documentation for endpoint
+# style: code style or formatting improvements, whitespace changes, indentation, or formatting consistency.
+#       e.g. [style]: Format code according to style guide
+# rename : renaming or relocating files/folders only
+# remove : deleting files/folders only
 
-###############  Check list 
+############### Check list 
 # <subject>
 # [] Start the title with a capital letter
 # [] Did you write the title in the form of a command?
@@ -30,3 +39,6 @@
 # [] Using bullet points (*) to list the individual changes
 # [] It should be written in the form of declarative sentences
 # [] Focus on what and why rather than how. It helps understand the purpose of the changes 
+
+################ Git Configuration
+# git config --global commit.template .gitmessage.txt
