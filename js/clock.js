@@ -1,5 +1,5 @@
 const clock = document.querySelector("h2#clock");
-const today = document.querySelector("h2#today");
+const today = document.querySelector("h5#today");
 
 function getClock() {
   const date = new Date();
@@ -19,4 +19,4 @@ function getToday(){
 
 getClock();
 setInterval(getClock, 1000);
-setInterval(getToday, 0000);
+setInterval(getToday, 1000);
