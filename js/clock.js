@@ -11,10 +11,15 @@ function getClock() {
 
 function getToday(){
   const date = new Date();
+  const monthNames = [
+    "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+  ];
   const year = date.getFullYear()
-  const month =  String(date.getMonth()).padStart(2,"0");
-  const day =  String(date.getDay()).padStart(2,"0");
-  today.innerText = `${year}-${month}-${day}`;  
+  const month =  date.getMonth();
+  const monthName = monthNames[month]
+  const day =  String(date.getDate()).padStart(2,"0");
+  today.innerText = `${year}-${monthName}-${day}`;  
 }
 
 getClock();
