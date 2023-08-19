@@ -10,9 +10,6 @@ function backgroundImg(){
     body.style.backgroundPosition = "center center";
     
     // body.style.opacity= 0.2;
-    console.log('naro');
-    console.log(chosenImage);
-    console.log(body.style.backgroundImage);
 }
 
 document.addEventListener("DOMContentLoaded", backgroundImg);

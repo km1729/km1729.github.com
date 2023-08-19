@@ -11,21 +11,18 @@
 
 <body >
   
-  <div class="container text-center">
-    <div class="row align-items-end time">
-      <div class="col">col</div>
-      <div class="col">
-        <div id="time">
-          <h5 id="today">today</h5>
-          <h2 id="clock">00:00</h2>
-        </div>
-        <div id="weather">
-          <span>이모지</span>
-          <span>온도</span>
-          <span>최고온도</span>
-        </div>
-      </div>
-      <div class="col">col</div>
+  <div class="container text-center time">
+    <div class="row align-items-end">
+        <div class="row">
+          <div class="col" id="time">
+            <h5 id="today">today</h5>
+            <h2 id="clock">00:00</h2>
+          </div>
+          <div class="col" id="weather">
+            <span>이모지</span>
+            <span>온도</span>
+            <span>최고온도</span>
+          </div>
     </div>
     <div class="row text-center todo">
       <div class="col-4">col-4</div>
@@ -33,6 +30,11 @@
     </div>
   </div>
   <div class="overlay"></div>
+
+
+  <script src="js/background.js"></script>
+  <script src="js/clock.js"></script>
+  <script src="js/weather.js"></script>
 
   <!-- <form class="login-form hidden">
     <input required maxlength="15" type="text" placeholder="what is your name?">
@@ -50,19 +52,15 @@
     <span></span>
     <span></span>
   </div>
-  <div id=#weather>
-    <span></span>
-    <span></span>
-  </div> -->
 
 
 
- <!-- <script src="js/greetings.js"></script> -->
-  <script src="js/clock.js"></script>
+ <script src="js/greetings.js"></script> -->
+  
   <!-- <script src="js/quotes.js"></script>  -->
-  <script src="js/background.js"></script>
-  <!-- <script src="js/todo.js"></script>
-  <script src="js/weather.js"></script> -->
+  
+<!-- <script src="js/todo.js"></script> -->
+   
 
 </body>
 
