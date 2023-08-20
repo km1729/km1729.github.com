@@ -9,3 +9,5 @@ requriments:
 [x] 랜덤 배경 이미지  
 [x] 날씨와 위치 (geolocation)  
 [x] layout  
+
+![first version](img/chrome-app.png)
