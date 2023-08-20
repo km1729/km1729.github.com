@@ -1,4 +1,4 @@
-const API_KEY = ""
+const API_KEY = "c6deb5fbaddb5eabf993577e75121e15"
 
 function onGeoOk(position) {
   // console.log(position);
@@ -12,13 +12,13 @@ function onGeoOk(position) {
     .then(data => {
       const temp = document.querySelector("#weather span:first-child")
       const city = document.querySelector("#weather span:last-child")
-      temp.innerText = `${data.main.temp}° @`;
-      city.innerText = data.name;            
+      temp.innerText = `${data.main.temp}°`;
+      city.innerText = `@${data.name}`;            
     });
           // console.log(data.name, data.main.temp))
 }
 
 function onGeoError() {
-  alert("Can't find your location")
+  // alert("Can't find your location");
 }
 navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError);

@@ -1,1 +1,53 @@
 # To do list 
+- 유저로 todo를 입력 받는다. 
+    - 입력받은 todo는 새로운 변수에 저장하고 input 텍스트 박스는 "" 빈 변수로 대체한다
+- paintTodo(newTodo)
+    - creating list elements(li and span) that user added
+    - span을 li에 child로 추가한다
+    - span에 newTodo를 추가한다. 
+    - output <li><span>newTodo</span></li>
+    - 생성된 li를 toDoList에 child로 추가한다
+- Add a button to delete selected todo
+    - button 변수를 생성하고 이모티콘 x를 추가한다. (window + .)
+    - li에 child로 button을 추가한다.  
+    - 유저가 입력한 투두와  버튼이 li에 나란히 입력된다.
+    - 버튼에 이벤트리스너를 추가하고 click 행동에 todo가 삭제하는 함수를 추가한다
+    - `button.addEventLinstener("click", deleteTodo)`, `fuc deleteTodo()`
+    - click이 어떤 버튼이 클릭되는지 구분해야한다. e.g첫번째꺼일수도 마지막꺼일수도 있음
+    - `deleteTodo(event)` event 파라미터를 추가해서 어떤 옵션이 보이는지 확인해보자. 다른 버튼을 클릭할 때마 MouseEvent가 리턴된다. 그중 path 와 target을라는 옵션을 확인해 본다. (path는 찾을 수 없고 target은 있음)
+    - `console.log(event.target)`을 통해서 로그 확인해보면 결과는 위와 똑같이 보인다. 여기서 `console.dir(event.target)`을 통해 target의 프로퍼티를 확인해본다. `parentElement` 와 `parentNode`는 선택된 li의 정보를 보여준다. 
+    - `console.dir(event.target.parentElement.innerText)`로 업데이트 후 delete버튼을 클릭해보면 입력된 li의 정보 e.g., 자바, 공부 것들이 결과로 보여준다
+    - 결론 선택된 delete버튼의 parentElement li를 알아낸다.  
+
+- Saving To Dos
+    - local storage를 이용해서 브라우저에 저장한다.
+    - array `todos` 생성해서 새로운 투드가 생성될때 마다 어레이에 추가되게 한다
+    - 로컬스토리지는 어레이를 저장하지 못하고 텍스트만 추가할 수 있다
+    - `saveToDos()`를 생성하고, 로컬스토리지에 추가`setItem` 한다.
+    - 로컬스토리지는 applicatoin > locatl storage에서 확인 할 수 있다.  
+    - 로컬스토리지 https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage  
+    - 스토리지에 저장은 되었으나 재사용은 어떻게 하나?
+    - json.stringify()를 이용해서 toDos가 로컬스토리지에 어레이 형태로 저장되게 한다  output: todos:	["a","b","c"]
+    
+- Load data from Local storage
+    - `JSON.stringify()`로 저장하고 `JSON.parse()`를 통해서 어레이로 변환한다. 
+    - array 아이템을 foreach()를 이용해서 모든 어레이 아이템에 함수를 적용할 수 있다.
+        - 예를 들면 sayhello()함수라는 것을 만들어서 출력한다면 어레이의 갯수만큼 헬로우를 출력할 것이다. item 파라미터를 이용해서 어레이의 값을 출력한다
+        - `parsedToDos.forEach((item) => console.log("this is the turn of", item))`;
+    - 어레이로 만들어서 불러온 데이터를 엘레먼트에 업데이트 해준다. 
+    - 어떻게 했는지 생각이 안나면 코드 다시 확인해보자
+    - todos 어레이는 항상 새로운 빈 리스트로 시작하는데 이 경우 로컬스토리지에 저장된 내용을  replace 하게된다. 이것을 방지하기 위해  savedTodo가 존재한다면, todos에 저장하고 새로운 todo는 리스트에 추가되게 한다
+
+- Delete data in the Local storage
+    - 화면에서 보여지는 x버튼을 누르면 현재는 삭제는 가능하나, 로컬스토리지에는 반영되지 않는다. 로컬스토리지는 todos 리스트의 카피이다. 
+    - 문제해결 방법: 중복되지 않는 아이디를 추가해서 삭제한다.
+    - Date.now()는 밀리세컨의 시간 정보를 리턴하는데 이것을 아이디로 만든다.
+    - `오브젝트`를 만들고 아이디와 newTodo의 정보를 toDos 리스트에 보내도록 변경 한다
+    - `paintTodo(obj)` obj로 변경하고 id는 li의 id로, text는 li의.innerText로 보내면 id와 text를 다가지는  li를 만든다
+    - filter(function)을 이해하고 로컬스토리지에 저장된 밸류를 새로운 리스트로 복사한다.** 필터해서 복사한다라고 이해하면 될것 같다**
+        - function abc(item){ return item > 6} return값이 true인것만 불러온다
+        - [1,2,3,4,5,6].filter(abc)
+        - [1,2,3,4,].filter(item => item>2)
+    - `deleteTodo()` 함수에다가 todo가 삭제되었을때 매칭되는 id를 리스트에서 제거하고 toDos를 새롭게 업데이트 한다
+    - `saveToDo()`를 추가해서 변경된 내용을 localStory에 업데이트한다
+    
